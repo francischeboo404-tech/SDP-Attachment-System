@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-50: #fcf9f2;
+  --color-primary-100: #f8f1df;
+  --color-primary-200: #f0debb;
+  --color-primary-300: #e7c58f;
+  --color-primary-400: #dfad5f;
+  --color-primary-500: #d6983a;
+  --color-primary-600: #c48030;
+  --color-primary-700: #a3612a;
+  --color-primary-800: #854d27;
+  --color-primary-900: #6f4024;
+  --color-primary: #e3bc75; /* Exact image match */
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-xl;
+  }
+}
