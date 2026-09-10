@@ -38,7 +38,9 @@ SECRET_KEY = env(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = ["youth-portal-backend.onrender.com", "localhost", "127.0.0.1"]
+#ALLOWED_HOSTS = ["youth-portal-backend.onrender.com", "localhost", "127.0.0.1"]
+
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "sdp-attachment-system.onrender.com,.onrender.com,localhost,127.0.0.1").split(",")
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 
