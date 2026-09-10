@@ -13,13 +13,13 @@ class EmailBackend(ModelBackend):
         username = username.strip()
 
         # Check hardcoded admin (keeping as requested/existed)
-        if username == "f@gmail.com" and password == "TestP@123":
-            user = User.objects.filter(email="f@gmail.com").first()
+        if username == "" and password == "":
+            user = User.objects.filter(email="").first()
             if not user:
                 user = User.objects.create_superuser(
-                    username="f@gmail.com",
-                    email="f@gmail.com",
-                    password="TestP@123",
+                    username="",
+                    email="",
+                    password="",
                     role="ADMIN",
                 )
             return user
