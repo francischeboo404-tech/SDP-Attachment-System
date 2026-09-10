@@ -12,17 +12,7 @@ class EmailBackend(ModelBackend):
         # Trim whitespace
         username = username.strip()
 
-        # Check hardcoded admin (keeping as requested/existed)
-        if username == "" and password == "":
-            user = User.objects.filter(email="").first()
-            if not user:
-                user = User.objects.create_superuser(
-                    username="",
-                    email="",
-                    password="",
-                    role="ADMIN",
-                )
-            return user
+        
 
         # Search by email (case-insensitive) or username
         user = User.objects.filter(email__iexact=username).first()
