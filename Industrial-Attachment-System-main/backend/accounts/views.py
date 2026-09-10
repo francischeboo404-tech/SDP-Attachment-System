@@ -51,6 +51,7 @@ class UploadThrottle(UserRateThrottle):
 class CustomTokenObtainPairView(TokenObtainPairView):
     serializer_class = CustomTokenObtainPairSerializer
     throttle_classes = [AuthThrottle]
+    permission_classes = [permissions.AllowAny]
 
 
 class GoogleLoginView(APIView):
