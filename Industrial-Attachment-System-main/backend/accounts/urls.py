@@ -1,4 +1,5 @@
 from django.urls import path
+from rest_framework import permissions
 from rest_framework_simplejwt.views import TokenRefreshView
 from .views import (
     RegisterView,
@@ -25,7 +26,7 @@ urlpatterns = [
     path("register/", RegisterView.as_view(), name="register"),
     path("login/", CustomTokenObtainPairView.as_view(), name="token_obtain_pair"),
     path("google-login/", GoogleLoginView.as_view(), name="google_login"),
-    path("refresh/", TokenRefreshView.as_view(), name="token_refresh"),
+    path("refresh/", TokenRefreshView.as_view(permission_classes=[permissions.AllowAny]), name="token_refresh"),
     path("dashboard-stats/", DashboardStatsView.as_view(), name="dashboard-stats"),
     path("profile/", ProfileDetailView.as_view(), name="profile-detail"),
     path("education/", EducationListCreateView.as_view(), name="education-list"),
